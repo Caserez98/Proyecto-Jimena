@@ -1,0 +1,13 @@
+create database InventarioTitanV2;
+
+Use InventarioTitanV2;
+
+create table Herramienta(CodH int primary key not null, Descripcion varchar(30) not null);
+
+create table Users (Usuario varchar (30) primary key not null, Nombre varchar(50), Password varchar(16));
+
+create table registro(CodR int primary key auto_increment, CodH int not null, Usuario varchar(30) not null, Entrada datetime default current_timestamp, Salida datetime default current_timestamp, foreign key(CodH) references Herramienta(CodH), Foreign key (Usuario) references Users(Usuario));
+
+Insert into Users (Usuario,Nombre, Password) Values('Jp12','Juan Perez','1234');
+
+Insert into Herramienta (CodH,Descripcion) Values(1,'Llave');
